@@ -15,13 +15,11 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('role',[optical, assistant]);
-            $table->unsignedInteger('sale_id');
+            $table->enum('role',['optical, assistant']);
             $table->unsignedInteger('user_id');
             $table->timestamps();
 
-            $table->foreign('sale_id')->references('id')->on('sale')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

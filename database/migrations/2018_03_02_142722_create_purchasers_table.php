@@ -15,14 +15,12 @@ class CreatePurchasersTable extends Migration
     {
         Schema::create('purchasers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('sex',[male, female]);
+            $table->enum('sex',['male, female']);
             $table->dateTime('birthdate');
-            $table->unsignedInteger('sale_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
 
-            $table->foreign('sale_id')->references('id')->on('sale')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

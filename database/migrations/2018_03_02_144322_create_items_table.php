@@ -20,11 +20,9 @@ class CreateItemsTable extends Migration
             $table->string('brand');
             $table->integer('guarantee')->default(12);
             $table->unsignedInteger('linesale_id');
-            $table->unsignedInteger('supplier_id');
             $table->timestamps();
 
-            $table->foreign('linesale_id')->references('id')->on('linesale')->onDelete('cascade');
-            $table->foreign('supplier_id')->references('id')->on('supplier')->onDelete('cascade');
+            $table->foreign('linesale_id')->references('id')->on('linesales');
         });
     }
 

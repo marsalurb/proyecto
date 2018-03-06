@@ -9,13 +9,22 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function employer(){
+        return $this->hasOne('App\Employer');
+    }
+
+    public function purchaser(){
+        return $this->hasOne('App\Purchaser');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname', 'email', 'password', 'secondname', 'surname', 'address', 'telephonenumber',
     ];
 
     /**

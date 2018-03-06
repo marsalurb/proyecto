@@ -19,7 +19,7 @@ class CreateLinesalesTable extends Migration
             $table->unsignedInteger('sale_id');
             $table->timestamps();
 
-            $table->foreign('sale_id')->references('id')->on('sale')->onDelete('cascade');
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
         });
     }
 
