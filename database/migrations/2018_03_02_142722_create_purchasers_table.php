@@ -16,11 +16,11 @@ class CreatePurchasersTable extends Migration
         Schema::create('purchasers', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('sex',['male, female']);
-            $table->dateTime('birthdate');
-            $table->unsignedInteger('user_id');
+            $table->date('birthdate');
+            $table->unsignedInteger('user_id')->unique();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

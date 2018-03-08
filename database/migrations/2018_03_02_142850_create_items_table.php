@@ -18,11 +18,11 @@ class CreateItemsTable extends Migration
             $table->double('price');
             $table->string('model');
             $table->string('brand');
-            $table->integer('guarantee');
-            $table->unsignedInteger('linesale_id');
+            $table->date('guarantee');
+            $table->unsignedTinyInteger('stock')->default(0);
             $table->timestamps();
 
-            $table->foreign('linesale_id')->references('id')->on('linesales');
+
         });
     }
 

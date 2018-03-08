@@ -11,19 +11,19 @@ class CreateSuppliersTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('business');
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
-            $table->integer('telephonenumber');
-            $table->string('nif')->unique();
+            $table->integer('number');
+            $table->string('cif')->unique();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

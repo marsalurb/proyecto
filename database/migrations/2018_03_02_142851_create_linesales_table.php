@@ -15,11 +15,13 @@ class CreateLinesalesTable extends Migration
     {
         Schema::create('linesales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('amount');
+            $table->unsignedTinyInteger('amount');
             $table->unsignedInteger('sale_id');
+            $table->unsignedInteger('item_id');
             $table->timestamps();
 
-            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
