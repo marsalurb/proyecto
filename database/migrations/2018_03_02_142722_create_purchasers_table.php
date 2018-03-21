@@ -15,7 +15,7 @@ class CreatePurchasersTable extends Migration
     {
         Schema::create('purchasers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('sex',['male, female']);
+            $table->enum('sex',['male', 'female']);
             $table->date('birthdate');
             $table->unsignedInteger('user_id')->unique();
             $table->timestamps();

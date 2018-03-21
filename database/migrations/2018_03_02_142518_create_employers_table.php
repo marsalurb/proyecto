@@ -15,7 +15,7 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('role',['optical, assistant']);
+            $table->enum('role',['optical', 'assistant']);
             $table->unsignedInteger('user_id')->unique();
             $table->timestamps();
 

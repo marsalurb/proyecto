@@ -19,7 +19,7 @@ class CreateSuppliersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('address');
-            $table->integer('number');
+            $table->string('number');
             $table->string('cif')->unique();
             $table->timestamps();
         });
