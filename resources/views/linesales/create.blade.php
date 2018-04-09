@@ -14,7 +14,7 @@
                         <div class="form-group">
                             {!! Form::label('amount', 'Cantidad') !!}
 
-                            //input
+                            ///input
 
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
