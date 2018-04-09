@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::resource('suppliers', 'SupplierController');
 Route::resource('users', 'UserController');
 Route::resource('employers', 'EmployerController');
@@ -26,6 +26,4 @@ Route::resource('sales', 'SaleController');
 Route::resource('items', 'ItemController');
 Route::resource('linesales', 'LineSaleController');
 
-Route::get('saludo', function(){
-    return view('saludo');
-});
+
