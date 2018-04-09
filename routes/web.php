@@ -26,4 +26,6 @@ Route::resource('sales', 'SaleController');
 Route::resource('items', 'ItemController');
 Route::resource('linesales', 'LineSaleController');
 
-
+Route::get('saludo', function(){
+    return view('saludo');
+});

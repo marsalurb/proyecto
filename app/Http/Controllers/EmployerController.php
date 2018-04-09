@@ -83,7 +83,7 @@ class EmployerController extends Controller
     {
         $this->validate($request, [
             'role' => 'required|assistant or optical',
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'required|exists:users,id'
         ]);
         $employer->fill($request->all());
         $employer->save();
