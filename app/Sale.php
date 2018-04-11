@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class sale extends Model
 {
     //
+    protected $fillable = ['purchaser_id', 'employer_id','amount', 'item_id'];
 
     public function employer(){
         return $this->belongsTo('App\Employer');
@@ -16,7 +17,7 @@ class sale extends Model
         return $this->belongsTo('App\Purchaser');
     }
 
-    public function linesale(){
-        return $this->hasMany('App\Linesale');
+    public function item(){
+        return $this->belongsToMany('App\Item')->withPivot('amount');
     }
 }

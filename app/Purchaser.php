@@ -13,6 +13,10 @@ class purchaser extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function getFullNameAttribute(){
+        return $this->user->firstname .' '.$this->user->surname;
+    }
+
     public function sale(){
         return $this->hasMany('App\Sale');
     }

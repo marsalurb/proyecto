@@ -8,7 +8,7 @@
                     <div class="panel-heading">Crear producto</div>
 
                     <div class="panel-body">
-                        @include('flash:message')
+
 
                         {!! Form::model($item, ['route'=>['items.update',$item->id], 'method'=>'PUT']) !!}
 

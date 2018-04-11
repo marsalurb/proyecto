@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employer;
+use App\User;
 use Illuminate\Http\Request;
 
 class EmployerController extends Controller
@@ -38,7 +39,6 @@ class EmployerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'role' => 'required|assistant or optical',
             'user_id' => 'required|exists:users,id'
 
         ]);
@@ -82,7 +82,6 @@ class EmployerController extends Controller
     public function update(Request $request, Employer $employer)
     {
         $this->validate($request, [
-            'role' => 'required|assistant or optical',
             'user_id' => 'required|exists:users,id'
         ]);
         $employer->fill($request->all());

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Supplier;
 
 class SupplierController extends Controller
 {
@@ -37,10 +38,10 @@ class SupplierController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'email',
             'addres' => 'required|max:255',
-            'number' => 'required|max:255',
-            'cif' => 'required|max:255'
+            'number' => 'numeric',
+            'cif' => 'required|max:15'
         ]);
 
         $supplier = new Supplier($request->all());
@@ -84,10 +85,10 @@ class SupplierController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'email',
             'addres' => 'required|max:255',
-            'number' => 'required|max:255',
-            'cif' => 'required|max:255'
+            'number' => 'numeric',
+            'cif' => 'required|max:15'
         ]);
 
         $supplier->fill($request->all());

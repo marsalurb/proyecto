@@ -40,7 +40,7 @@ class ItemController extends Controller
             'price' => 'required|max:5',
             'model' => 'required|max:255',
             'brand' => 'required|max:255',
-            'guarantee' => 'required|max:5',
+            'guarantee' => 'date|after_or_equal:now',
             'stock' => 'required|max:10'
         ]);
 
@@ -58,6 +58,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+        $supplier = Supplier::all()->pluck('name', 'id');
         return view('items/show',['item'=>$item]);
     }
 
@@ -85,7 +86,7 @@ class ItemController extends Controller
             'price' => 'required|max:5',
             'model' => 'required|max:255',
             'brand' => 'required|max:255',
-            'guarantee' => 'required|max:5',
+            'guarantee' => 'date|after_or_equal:now',
             'stock' => 'required|max:10'
         ]);
         $item->fill($request->all());

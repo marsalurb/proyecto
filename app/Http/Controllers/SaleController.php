@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Employer;
+use App\Purchaser;
+use App\Item;
+
+
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -25,7 +30,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $employers = Employers::all();
+        $employers = Employer::all();
         $purchasers = Purchaser::all();
         return view('sales/create',['employers'=>$employers, 'purchasers'=>$purchasers]);
 
@@ -63,7 +68,9 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        return view('sales/show',['sale'=>$sale]);
+        $items = Item::all();
+        return view('sales/itemSale',['sale'=>$sale,
+            'items'=>$items]);
     }
 
     /**
@@ -74,9 +81,10 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        $employers = Employers::all();
+        $employers = Employer::all();
         $purchasers = Purchaser::all();
-        return view('sales/edit',['employers'=>$employers, 'purchasers'=>$purchasers]);
+        return view('sales/edit',['employers'=>$employers,
+            'purchasers'=>$purchasers, 'sale'=>$sale]);
 
     }
 

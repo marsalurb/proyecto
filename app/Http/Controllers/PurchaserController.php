@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Purchaser;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class PurchaserController extends Controller

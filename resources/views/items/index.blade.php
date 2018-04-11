@@ -8,7 +8,6 @@
                     <div class="panel-heading">Crear producto</div>
 
                     <div class="panel-body">
-                        @include('flash:message')
                         {!! Form::open(['route'=>'items.create', 'method'=>'get']) !!}
                         {!! Form::submit('Crear producto', ['class'=> 'btn btn-primary']) !!}
                         {!! Form::close() !!}

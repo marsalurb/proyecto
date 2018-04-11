@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class employer extends Model
 {
     //
-    protected $fillable = ['role'];
+    protected $fillable = ['role_id', 'salary'];
 
     public function user(){
         return $this->belongsTo('App\User');
@@ -15,5 +15,9 @@ class employer extends Model
 
     public function sale(){
         return $this->hasMany('App\Sale');
+    }
+
+    public function role(){
+        return $this->belongsTo('App\Role');
     }
 }

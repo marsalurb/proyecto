@@ -41,10 +41,10 @@ class UserController extends Controller
             'firstname' => 'required|max:255',
             'surname' => 'required|max:255',
             'surname2' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'email',
             'addres' => 'required|max:255',
-            'number' => 'required|max:255',
-            'password' => 'required|max:255'
+            'number' => 'numeric',
+
         ]);
 
         $user = new User($request->all());
@@ -89,10 +89,9 @@ class UserController extends Controller
             'firstname' => 'required|max:255',
             'surname' => 'required|max:255',
             'surname2' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'email',
             'addres' => 'required|max:255',
-            'number' => 'required|max:255',
-            'password' => 'required|max:255'
+            'number' => 'numeric',
         ]);
         $user->fill($request->all());
         $user->save();

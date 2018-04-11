@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('content')
 <div class="container")>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -7,7 +8,7 @@
                 <div class="panel-heading">Crear proveedor</div>
 
                 <div class="panel-body">
-                    @include('flash:message')
+
                     {!! Form::open(['route'=>'suppliers.create', 'method'=>'get']) !!}
                     {!! Form::submit('Crear proveedor', ['class'=> 'btn btn-primary']) !!}
                     {!! Form::close() !!}
@@ -30,12 +31,12 @@
                                 <td>{{$supplier->number}}</td>
                                 <td>{{$supplier->CIF}}</td>
                                 <td>
-                                    {!! Form::open(['route'=>['suppliers.edit', $item->id], 'method' => 'get']) !!}
+                                    {!! Form::open(['route'=>['suppliers.edit', $supplier->id], 'method' => 'get']) !!}
                                     {!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}
                                     {!! Form::close() !!}
                                 </td>
                                 <td>
-                                    {!! Form::open(['route'=>['suppliers.destroy', $item->id], 'method' => 'delete']) !!}
+                                    {!! Form::open(['route'=>['suppliers.destroy', $supplier->id], 'method' => 'delete']) !!}
                                     {!! Form::submit('Borrar', ['class'=> 'btn btn-warning', 'onclick'=>'if(!confirm("¿Está seguro?))event.preventDefault();']) !!}
                                     {!! Form::close() !!}
                                 </td>
