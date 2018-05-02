@@ -42,7 +42,7 @@ class UserController extends Controller
             'surname' => 'required|max:255',
             'surname2' => 'required|max:255',
             'email' => 'email',
-            'addres' => 'required|max:255',
+            'address' => 'required|max:255',
             'number' => 'numeric',
 
         ]);
@@ -90,7 +90,7 @@ class UserController extends Controller
             'surname' => 'required|max:255',
             'surname2' => 'required|max:255',
             'email' => 'email',
-            'addres' => 'required|max:255',
+            'address' => 'required|max:255',
             'number' => 'numeric',
         ]);
         $user->fill($request->all());

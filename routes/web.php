@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('suppliers', 'SupplierController');
 Route::resource('users', 'UserController');
 Route::resource('employers', 'EmployerController');
-Route::resource('purchaser', 'PurchaserController');
+Route::resource('purchasers', 'PurchaserController');
 Route::resource('sales', 'SaleController');
 Route::resource('items', 'ItemController');
 Route::resource('linesales', 'LineSaleController');

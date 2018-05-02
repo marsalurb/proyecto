@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Supplier;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -58,8 +59,9 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-       // $supplier = Supplier::all()->pluck('name', 'id');
-        return view('items/show',['item'=>$item]);
+        //$supplier = Supplier::all()->pluck('name', 'id');
+        //return view('items/show',['item'=>$item]);
+        return view ('items/itemSupplier', ['item'=>$item, 'supplier'=>$supplier]);
     }
 
     /**

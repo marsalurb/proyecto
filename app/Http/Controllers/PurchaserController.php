@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Purchaser;
-use App\User;
+
 
 use Illuminate\Http\Request;
 
@@ -27,8 +27,7 @@ class PurchaserController extends Controller
      */
     public function create()
     {
-        $users = User::all()->pluck('id','firstname');
-        return view('purchasers/create',['users'=>$users]);
+        return view('purchasers/create');
     }
 
     /**
@@ -60,7 +59,7 @@ class PurchaserController extends Controller
      */
     public function show(Purchaser $purchaser)
     {
-        return view('purchasers/show',['purchaser'=>$purchaser]);
+        //return view('purchasers/show',['purchaser'=>$purchaser]);
     }
 
     /**
@@ -71,8 +70,8 @@ class PurchaserController extends Controller
      */
     public function edit(Purchaser $purchaser)
     {
-        $users=User::all()->pluck('firstname','id');
-        return view('purchasers/edit', ['purchaser' => $purchaser, 'users' => $users]);
+
+        return view('purchasers/edit', ['purchaser' => $purchaser]);
 
     }
 
@@ -88,9 +87,13 @@ class PurchaserController extends Controller
         $this->validate($request, [
             'sex' => 'required|female or male',
             'birthdate' => 'required|date|after:now',
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'required|exists:users,id'
         ]);
+        $user = $purchaser->user;
+        $user->fill($request->all());
         $purchaser->fill($request->all());
+        $purchaser->user_id = $user->id;
+        $user->save();
         $purchaser->save();
         flash('Cliente modificado correctamente');
         return redirect()->route('purchasers.index');

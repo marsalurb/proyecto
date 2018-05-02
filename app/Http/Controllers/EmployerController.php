@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Employer;
-use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class EmployerController extends Controller
@@ -26,8 +26,9 @@ class EmployerController extends Controller
      */
     public function create()
     {
-        $users = User::all()->pluck('id','firstname');
-        return view('employers/create',['users'=>$users]);
+        //$users = User::all();
+        $roles = Role::all()->pluck('name');
+        return view('employers/create', ['roles'=>$roles]);
     }
 
     /**
@@ -39,7 +40,8 @@ class EmployerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required|exists:users,id'
+            'user_id' => 'required|exists:users,id',
+            'role_id'=>'required|exists:roles,id'
 
         ]);
 
@@ -57,7 +59,7 @@ class EmployerController extends Controller
      */
     public function show(Employer $employer)
     {
-        return view('employers/show',['employer'=>$employer]);
+       // return view('employers/show',['employer'=>$employer]);
     }
 
     /**
@@ -68,8 +70,8 @@ class EmployerController extends Controller
      */
     public function edit(Employer $employer)
     {
-        $users=User::all()->pluck('firstname','id');
-        return view('employers/edit', ['employer' => $employer, 'users' => $users]);
+        $roles=Role::all()->pluck('name','id');
+        return view('employers/edit', ['employer' => $employer, 'roles' => $roles]);
     }
 
     /**
@@ -82,9 +84,14 @@ class EmployerController extends Controller
     public function update(Request $request, Employer $employer)
     {
         $this->validate($request, [
-            'user_id' => 'required|exists:users,id'
+            'user_id' => 'required|exists:users,id',
+            'role_id'=>'required|exists:roles,id'
         ]);
+        $user = $employer->user;
+        $user->fill($request->all());
         $employer->fill($request->all());
+        $employer->user_id = $user->id;
+        $user->save();
         $employer->save();
         flash('Empleado modificado correctamente');
         return redirect()->route('employers.index');

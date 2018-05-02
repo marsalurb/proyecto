@@ -19,6 +19,8 @@
                                 <th>Modelo</th>
                                 <th>Marca</th>
                                 <th>Garantia</th>
+                                <th>Stock</th>
+
                             </tr>
 
                             @foreach($items as $item)
@@ -27,6 +29,8 @@
                                     <td>{{$item->model}}</td>
                                     <td>{{$item->brand}}</td>
                                     <td>{{$item->guarantee}}</td>
+                                    <td>{{$item->stock}}</td>
+
                                     <td>
                                         {!! Form::open(['route'=>['items.edit', $item->id], 'method' => 'get']) !!}
                                         {!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}

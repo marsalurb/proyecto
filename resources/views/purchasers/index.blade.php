@@ -8,7 +8,7 @@
                     <div class="panel-heading">Crear cliente</div>
 
                     <div class="panel-body">
-                        @include('flash:message')
+
                         {!! Form::open(['route'=>'purchasers.create', 'method'=>'get']) !!}
                         {!! Form::submit('Crear cliente', ['class'=> 'btn btn-primary']) !!}
                         {!! Form::close() !!}
@@ -16,21 +16,39 @@
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
+
+                                <th>Nombre</th>
+                                <th>Pirmer apellido</th>
+                                <th>Segundo apellido</th>
+                                <th>DNI</th>
                                 <th>Sexo</th>
                                 <th>Fecha de nacimiento</th>
+                                <th>Direccion</th>
+                                <th>Nº telefono</th>
+                                <th>Email</th>
+
+
                             </tr>
 
                             @foreach($purchasers as $purchaser)
                                 <tr>
+
+                                    <td>{{$purchaser->user->firstname}}</td>
+                                    <td>{{$purchaser->user->surname}}</td>
+                                    <td>{{$purchaser->user->surname2}}</td>
+                                    <td>{{$purchaser->user->dni}}</td>
                                     <td>{{$purchaser->sex}}</td>
                                     <td>{{$purchaser->birthdate}}</td>
+                                    <td>{{$purchaser->user->address}}</td>
+                                    <td>{{$purchaser->user->number}}</td>
+                                    <td>{{$purchaser->user->email}}</td>
                                     <td>
-                                        {!! Form::open(['route'=>['purchasers.edit', $item->id], 'method' => 'get']) !!}
+                                        {!! Form::open(['route'=>['purchasers.edit', $purchaser->id], 'method' => 'get']) !!}
                                         {!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
-                                        {!! Form::open(['route'=>['purchasers.destroy', $item->id], 'method' => 'delete']) !!}
+                                        {!! Form::open(['route'=>['purchasers.destroy', $purchaser->id], 'method' => 'delete']) !!}
                                         {!! Form::submit('Borrar', ['class'=> 'btn btn-warning', 'onclick'=>'if(!confirm("¿Está seguro?))event.preventDefault();']) !!}
                                         {!! Form::close() !!}
                                     </td>

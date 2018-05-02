@@ -13,19 +13,25 @@
                         {!! Form::open(['route'=>'items.store']) !!}
                         <div class="form-group">
                             {!! Form::label('price', 'Precio del producto') !!}
-
-                            //input
+                            {!! Form::text('price',null,['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
                         <div class="form-group">
                             {!! Form::label('model', 'Modelo del producto')!!}
+                            {!! Form::text('model',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('brand', 'Marca del producto')!!}
+                            {!! Form::text('brand',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('guarantee', 'Garantia del producto')!!}
+                            {!! Form::text('guarantee',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('stock', 'Stock del producto')!!}
+                            {!! Form::text('stock',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

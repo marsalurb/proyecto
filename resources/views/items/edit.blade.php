@@ -14,19 +14,25 @@
 
                         <div class="form-group">
                             {!! Form::label('price', 'Precio del producto') !!}
-
-                            //input
+                            {!! Form::text('price',$item->price,['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
                         <div class="form-group">
                             {!! Form::label('model', 'Modelo del producto')!!}
+                            {!! Form::text('model',$item->model,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('brand', 'Marca del producto')!!}
+                            {!! Form::text('brand',$item->brand,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('guarantee', 'Garantia del producto')!!}
+                            {!! Form::text('guarantee',$item->guarantee,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('stock', 'Stock del producto')!!}
+                            {!! Form::text('stock',$item->stock,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

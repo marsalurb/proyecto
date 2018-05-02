@@ -6,7 +6,7 @@
                     <div class="panel-heading">Crear empleado</div>
 
                     <div class="panel-body">
-                        @include('flash:message')
+
 
                         {!! Form::open(['route'=>'employers.store']) !!}
                         <div class="form-group">
