@@ -58,7 +58,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $supplier = Supplier::all()->pluck('name', 'id');
+       // $supplier = Supplier::all()->pluck('name', 'id');
         return view('items/show',['item'=>$item]);
     }
 

@@ -13,7 +13,7 @@ class CreateItemSalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('linesales', function (Blueprint $table) {
+        Schema::create('item_sales', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedTinyInteger('amount');
             $table->unsignedInteger('sale_id');
@@ -32,6 +32,6 @@ class CreateItemSalesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itemSales');
+        Schema::dropIfExists('item_sales');
     }
 }
