@@ -34,22 +34,21 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'email',
-            'addres' => 'required|max:255',
-            'number' => 'numeric',
-            'cif' => 'required|max:15'
+            'name' => 'required|max:5',
+            'email' => 'required|max:255',
+            'address' => 'required|max:255',
+            'number' => 'required|max:255',
+            'cif' => 'required|max:255'
         ]);
 
         $supplier = new Supplier($request->all());
         $supplier->save();
         flash('Proveedor creado correctamente');
         return redirect()->route('suppliers.index');
-
-
     }
 
     /**
@@ -84,13 +83,12 @@ class SupplierController extends Controller
     public function update(Request $request, Supplier $supplier)
     {
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'email',
-            'addres' => 'required|max:255',
-            'number' => 'numeric',
-            'cif' => 'required|max:15'
+            'name' => 'required|max:5',
+            'email' => 'required|max:255',
+            'address' => 'required|max:255',
+            'number' => 'required|max:255',
+            'cif' => 'required|max:255'
         ]);
-
         $supplier->fill($request->all());
         $supplier->save();
         flash('Proveedor modificado correctamente');

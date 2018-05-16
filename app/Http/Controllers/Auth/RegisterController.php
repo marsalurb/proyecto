@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Employer;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -40,6 +42,14 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $roles = Role::all()->pluck('name','id');
+
+        return view('auth.register',['roles'=>$roles]);
+
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,9 +59,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'dni' => 'required|string|max:9|unique:users',
+            'firstname' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'surname2' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'address' => 'required|string|max:255',
+            'number' => 'required|string|max:20',
+            'role_id'=>'required|exists:roles,id',
+            'salary'=>'required|max:5'
         ]);
     }
 
@@ -63,10 +80,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = new User();
+        $user->firstname = $data['firstname'];
+        $user->surname = $data['surname'];
+        $user->surname2 = $data['surname2'];
+        $user->email = $data['email'];
+        $user ->dni = $data['dni'];
+        $user->number = $data['number'];
+        $user->address = $data['address'];
+        $user->password = bcrypt($data['password']);
+        $user->save();
+
+        $employer = new Employer($data);
+        $employer->salary=$data['salary'];
+        $employer->role_id=$data['role_id'];
+        //$employer = DB::table('employers')->select('optical', 'assistant', 'admin')->get();
+
+        $employer->user()->associate($user);
+        $employer->save();
+
     }
 }

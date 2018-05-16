@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Crear empleado</div>
+                    <div class="panel-heading">Editar empleado</div>
 
                     <div class="panel-body">
 
@@ -23,7 +23,7 @@
                             {!! Form::text('surname',$employer->user->surname,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('role', 'Rol') !!}
+                            {!! Form::label('role_id', 'Rol') !!}
                             <br>
                             {!! Form::select('role_id', $roles, $employer->role_id, ['class' => 'form-control', 'required']) !!}
                         </div>

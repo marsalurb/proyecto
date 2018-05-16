@@ -39,9 +39,8 @@ class PurchaserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'sex' => 'required|female or male',
-            'birthdate' => 'required|date|after:now',
-            'user_id' => 'required|exists:users,id'
+            'sex' => 'required|max:6',
+            'birthdate' => 'date|before_or_equal:now'
 
         ]);
 
@@ -85,9 +84,8 @@ class PurchaserController extends Controller
     public function update(Request $request, Purchaser $purchaser)
     {
         $this->validate($request, [
-            'sex' => 'required|female or male',
-            'birthdate' => 'required|date|after:now',
-            'user_id' => 'required|exists:users,id'
+            'sex' => 'required|max:6',
+            'birthdate' => 'date|before_or_equal:now'
         ]);
         $user = $purchaser->user;
         $user->fill($request->all());

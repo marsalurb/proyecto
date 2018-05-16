@@ -13,6 +13,7 @@ class CreateItemSuppliersTable extends Migration
      */
     public function up()
     {
+
         Schema::create('item_suppliers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();

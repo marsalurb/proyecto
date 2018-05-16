@@ -40,9 +40,8 @@ class EmployerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required|exists:users,id',
-            'role_id'=>'required|exists:roles,id'
-
+            'role_id'=>'required|exists:roles,id',
+            'salary'=>'numeric'
         ]);
 
         $employer = new Employer($request->all());
@@ -70,7 +69,7 @@ class EmployerController extends Controller
      */
     public function edit(Employer $employer)
     {
-        $roles=Role::all()->pluck('name','id');
+        $roles=Role::all()->pluck('name');
         return view('employers/edit', ['employer' => $employer, 'roles' => $roles]);
     }
 
@@ -84,8 +83,8 @@ class EmployerController extends Controller
     public function update(Request $request, Employer $employer)
     {
         $this->validate($request, [
-            'user_id' => 'required|exists:users,id',
-            'role_id'=>'required|exists:roles,id'
+            'role_id'=>'required|exists:roles,id',
+            'salary'=>'numeric'
         ]);
         $user = $employer->user;
         $user->fill($request->all());
