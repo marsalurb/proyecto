@@ -48,7 +48,7 @@
             .title {
                 font-size: 200px;
                 color: #0069d9;
-                font-family: "Comic Sans MS";
+                font-family: Verdana;
                 text-align: left;
             }
 
@@ -73,17 +73,17 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">INICIO</a>
                     @else
-                        <a href="{{ route('login') }}">Entrar</a>
-                        <a href="{{ route('register') }}">Registrar</a>
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    OPTICAL¡A
+                    ÓPTICA
                 </div>
 
                 <div class="links">

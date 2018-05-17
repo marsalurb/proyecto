@@ -68,9 +68,8 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        $items = Item::all();
-        return view('sales/itemSale',['sale'=>$sale,
-            'items'=>$items]);
+        $items = Item::all()->pluck('name', 'id');
+        return view('items/itemSale',['sale'=>$sale, 'items'=>$items]);
     }
 
     /**
@@ -95,16 +94,24 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, Sale $sale)
     {
         $this->validate($request, [
             'employer_id' => 'required|exists:employers,id',
             'purchaser_id' => 'required|exists:purchasers,id'
         ]);
+        $user = $sale->employer->user;
+        $employer = $sale->employer;
+        $user->fill($request->all());
+        $employer->fill($request->all());
         $sale->fill($request->all());
+        $employer->user_id = $user->id;
+        $user->save();
+        $employer->save();
         $sale->save();
-        flash('Venta modificado correctamente');
-        return redirect()->route('sales.index');
+        flash('Empleado modificado correctamente');
+        return redirect()->route('employers.index');
     }
 
     /**
