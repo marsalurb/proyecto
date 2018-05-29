@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Purchaser;
-
+use App\User;
 
 use Illuminate\Http\Request;
 
 class PurchaserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,10 +45,21 @@ class PurchaserController extends Controller
         $this->validate($request, [
             'sex' => 'required|max:6',
             'birthdate' => 'date|before_or_equal:now'
-
         ]);
 
+        $user = new User;
+        $user->firstname = $request['firstname'];
+        $user->surname = $request['surname'];
+        $user->surname2 = $request['surname2'];
+        $user->dni = $request['dni'];
+        $user->number = $request['number'];
+        $user->email = $request['email'];
+        $user->address = $request['address'];
+
+        $user->save();
+
         $purchaser = new Purchaser($request->all());
+        $purchaser->user()->associate($user);
         $purchaser->save();
         flash('Cliente creado correctamente');
         return redirect()->route('purchasers.index');
@@ -86,12 +101,21 @@ class PurchaserController extends Controller
         $this->validate($request, [
             'sex' => 'required|max:6',
             'birthdate' => 'date|before_or_equal:now'
+
         ]);
-        $user = $purchaser->user;
-        $user->fill($request->all());
-        $purchaser->fill($request->all());
-        $purchaser->user_id = $user->id;
+        $user = User::find($purchaser->user_id);
+        $user->firstname = $request['firstname'];
+        $user->surname = $request['surname'];
+        $user->surname2 = $request['surname2'];
+        $user->dni = $request['dni'];
+        $user->number = $request['number'];
+        $user->email = $request['email'];
+        $user->address = $request['address'];
+
         $user->save();
+
+        $purchaser->fill($request->all());
+        $purchaser->user()->associate($user);
         $purchaser->save();
         flash('Cliente modificado correctamente');
         return redirect()->route('purchasers.index');

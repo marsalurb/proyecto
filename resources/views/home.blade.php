@@ -5,32 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Datos correctos, bienvenido.</div>
+                <div class="card-header">Datos correctos</div>
 
-                <div class="panel-body">
+
+                <br class="panel-body">
                     <td>
-                        Seleccione la sección que desee visualizar.
+                        Bienvenido a Óptica Salas
 
                     </td>
-                    <td>
-                        {!! Form::open(['route' => ['items.index'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Productos', ['class'=> 'btn btn-primary btn-block'])!!}
-                        {!! Form::close() !!}
-                    </td>
+                    <br></br>
+
                     <td>
                         {!! Form::open(['route' => ['sales.index'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Ventas', ['class'=> 'btn btn-basic btn-block'])!!}
-                        {!! Form::close() !!}
-                    </td>
-
-                    <td>
-                        {!! Form::open(['route' => ['purchasers.index'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Clientes', ['class'=> 'btn btn-primary btn-block'])!!}
-                        {!! Form::close() !!}
-                    </td>
-                    <td>
-                        {!! Form::open(['route' => ['suppliers.index'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Proveedores', ['class'=> 'btn btn-basic btn-block'])!!}
+                        {!!   Form::submit('Ver ventas', ['class'=> 'btn btn-primary btn-block'])!!}
                         {!! Form::close() !!}
                     </td>
 

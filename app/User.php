@@ -17,6 +17,9 @@ class User extends Authenticatable
         return $this->hasOne('App\Purchaser');
     }
 
+    public function fullname(){
+        return $this->firstname + ' ' + $this->surname;
+    }
 
     /**
      * The attributes that are mass assignable.

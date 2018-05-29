@@ -37,8 +37,10 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                right: 30px;
+                top: 30px;
+                font-size: 30px;
+                font-family: "Courier New";
             }
 
             .content {
@@ -47,18 +49,17 @@
 
             .title {
                 font-size: 150px;
-                color: #005ab3;
+                color: #0069d9;
                 font-family: "Courier New";
                 text-align: left;
-
             }
 
             .links > a {
-                color: #000204;
-                padding: 0 15px;
+                color: #000000;
+                padding: 0 25px;
                 font-size: 20px;
                 font-weight: 600;
-                letter-spacing: 0rem;
+                letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
@@ -68,29 +69,56 @@
             }
         </style>
     </head>
+    <a class="navbar-brand top-right " href="{{ url('/') }}">
+        {{ config('app.name', 'Óptica Salas') }}
+    </a>
 
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">INICIO</a>
-                    @else
-                        <a href="{{ route('login') }}">Iniciar sesión</a>
-                        <a href="{{ route('register') }}">Registrar empleado</a>
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Óptica Salas
-                </div>
 
-                <div class="links">
-                    <a href="{{ url('/information') }}">¿Quiénes somos?</a>
-                </div>
-            </div>
+
+    </div>
+
+
+    <!--Descripción de los objetivos-->
+    <br class = "contenido m-b-md" >
+        <br></br>
+        <h1 style = "margin-left: 10%" > Conócenos</h1>
+        <p style = "margin-left: 10%" >Si te gustan las gafas, te gusta nuestra óptica.</p>
+        <p style = "margin-left: 10%" >Vamos de la mano de las últimas tendencias. Tenemos un amplio catálogo con marcas y modelos exclusivos.</p>
+        <br></br>
+
+        <h1 style = "margin-left: 10%" > Dónde estamos</h1>
+        <p style = "margin-left: 10%" >Nos encontramos en Calle Torcuato Luca de Tena 9, Sevilla.</p>
+        <br></br>
+
+
+        <!--Sobre nosotras-->
+        <h1 style = "margin-left: 10%">Contacto</h1>
+        <div>
+            <dl style = "margin-left: 10%">
+                <dt>María Salas Urbano</dt>
+                <dt>e-mail: maria.su.1997@hotmail.com</dt>
+                <dt>Teléfono: 666555444</dt>
+            </dl>
         </div>
+        <img src = "https://www.elindependiente.com/wp-content/uploads/2017/05/gafas-3d.jpg"
+             width="320" height= "180" style = "margin-left: 70%">
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
     </body>
+
+
 </html>

@@ -12,13 +12,40 @@
 
                         {!! Form::open(['route'=>'purchasers.store']) !!}
                         <div class="form-group">
+                            {!! Form::label('firstname', 'Nombre') !!}
+                            {!! Form::text('firstname',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('surname', 'Pimer apellido') !!}
+                            {!! Form::text('surname',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('surname2', 'Segundo apellido') !!}
+                            {!! Form::text('surname2',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('dni', 'DNI') !!}
+                            {!! Form::text('dni',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('sex', 'Sexo') !!}
-
-                            //input
-
+                            {!! Form::text('sex',null,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('birthdate', 'Fecha de nacimiento')!!}
+                            {!! Form::text('birthdate',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('address', 'Dirección')!!}
+                            {!! Form::text('address',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('number', 'Telefono') !!}
+                            {!! Form::text('number',null,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('email', 'Email')!!}
+                            {!! Form::text('email',null,['class'=>'form-control', 'required']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

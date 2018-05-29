@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Productos</div>
 
+
                     <div class="panel-body">
                         {!! Form::open(['route'=>'items.create', 'method'=>'get']) !!}
                         {!! Form::submit('Crear producto', ['class'=> 'btn btn-primary']) !!}

@@ -12,6 +12,12 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,8 +36,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $employers = Employer::all();
-        $purchasers = Purchaser::all();
+        $employers = Employer::all()->pluck('fullname', 'id');
+        $purchasers = Purchaser::all()->pluck('fullname', 'id');
         return view('sales/create',['employers'=>$employers, 'purchasers'=>$purchasers]);
 
 
@@ -68,8 +74,8 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        $items = Item::all()->pluck('name', 'id');
-        return view('items/itemSale',['sale'=>$sale, 'items'=>$items]);
+        $items = Item::all()->pluck('model', 'id');
+        return view('sales/itemSale',['sale'=>$sale, 'items'=>$items]);
     }
 
     /**
@@ -80,8 +86,8 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        $employers = Employer::all();
-        $purchasers = Purchaser::all();
+        $employers = Employer::all()->pluck('fullname', 'id');
+        $purchasers = Purchaser::all()->pluck('fullname', 'id');
         return view('sales/edit',['employers'=>$employers,
             'purchasers'=>$purchasers, 'sale'=>$sale]);
 
@@ -100,18 +106,16 @@ class SaleController extends Controller
         $this->validate($request, [
             'employer_id' => 'required|exists:employers,id',
             'purchaser_id' => 'required|exists:purchasers,id'
+
         ]);
-        $user = $sale->employer->user;
-        $employer = $sale->employer;
-        $user->fill($request->all());
-        $employer->fill($request->all());
         $sale->fill($request->all());
-        $employer->user_id = $user->id;
-        $user->save();
-        $employer->save();
         $sale->save();
         flash('Empleado modificado correctamente');
-        return redirect()->route('employers.index');
+        return redirect()->route('sales.index');
+
+
+
+
     }
 
     /**
@@ -126,4 +130,27 @@ class SaleController extends Controller
         flash('Venta borrada correctamente');
         return redirect()->route('sales.index');
     }
+
+    public function productosVentas($id, Request $request){
+
+        $this->validate($request, [
+            'amount'=>'numeric'
+        ]);
+        $sale=Sale::find($id);
+        $sale->items()->attach($request->item_id, ['amount'=>$request->amount, 'sale_id'=>$sale->id]);
+        return redirect()->route('sales.show'. ['sale'=>$sale]);
+    }
+
+    public function deleteItem($idItem ,$idSale)
+    {
+        $item = Item::find($idItem);
+        $sale = Consulta::find($idSale);
+        $sale->items()->detach($item->id);
+
+        return redirect()->route('sales.show', ['sale'=>$sale]);
+    }
+
+
 }
+
+

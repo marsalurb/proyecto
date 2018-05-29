@@ -13,19 +13,17 @@
                         {!! Form::model($sale, ['route'=>['sales.update',$sale->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('dni', 'DNI del cliente') !!}
-                            {!! Form::text('dni', $sale->purchaser->user->dni, ['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::label('purchaser_id', 'Cliente') !!}
+                            <br>
+                            {!! Form::select('purchaser_id', $purchasers, $sale->purchaser_id, ['class'=>'form-control', 'required']) !!}
 
                         </div>
                         <div class="form-group">
-                            {!! Form::label('dni', 'DNI del empleado') !!}
-                            {!! Form::text('dni', $sale->employer->user->dni,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::label('employer_id', 'Empleado') !!}
+                            <br>
+                            {!! Form::select('employer_id', $employers, $sale->employer_id,['class'=>'form-control', 'required']) !!}
                         </div>
 
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('timestamps', 'Fecha')!!}
-                            {!! Form::text('timestamps',$sale->timestamps,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

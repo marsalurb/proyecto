@@ -15,20 +15,24 @@
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <th>DNI Cliente</th>
-                                <th>DNI Empleado</th>
-                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Empleado</th>
 
                             </tr>
 
                             @foreach($sales as $sale)
                                 <tr>
-                                    <td>{{$sale->purchaser->user->dni}}</td>
-                                    <td>{{$sale->employer->user->dni}}</td>
-                                    <td>{{$sale->timestamps}}</td>
+                                    <td>{{$sale->purchaser->fullname}}</td>
+                                    <td>{{$sale->employer->fullname}}</td>
                                     <td>
                                         {!! Form::open(['route'=>['sales.show', $sale->id], 'method' => 'get']) !!}
                                         {!! Form::submit('Detalles de productos', ['class'=> 'btn btn-success']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
+
+                                    <td>
+                                        {!! Form::open(['route'=>['sales.edit', $sale->id], 'method' => 'get']) !!}
+                                        {!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}
                                         {!! Form::close() !!}
                                     </td>
 

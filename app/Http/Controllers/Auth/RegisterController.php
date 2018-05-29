@@ -99,5 +99,7 @@ class RegisterController extends Controller
         $employer->user()->associate($user);
         $employer->save();
 
+        return $user;
+
     }
 }

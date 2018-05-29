@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('surname2', 'Segundo apellido del cliente') !!}
-                            {!! Form::text('suname2',$purchaser->user->surname2,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::text('surname2',$purchaser->user->surname2,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('number', 'Nº telefono del cliente') !!}

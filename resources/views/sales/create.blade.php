@@ -12,19 +12,15 @@
 
                         {!! Form::open(['route'=>'sales.store']) !!}
                         <div class="form-group">
-                            {!! Form::label('dni', 'DNI del cliente') !!}
-                            {!! Form::select('dni',$purchasers,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::label('purchaser_id', 'Cliente') !!}
+                            {!! Form::select('purchaser_id',$purchasers,['class'=>'form-control', 'required', 'autofocus']) !!}
 
                         </div>
                         <div class="form-group">
-                            {!! Form::label('dni', 'DNI del empleado')!!}
-                            {!! Form::select('dni',$employers,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::label('employer_id', 'Empleado')!!}
+                            {!! Form::select('employer_id',$employers,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
 
-                        <div class="form-group">
-                            {!! Form::label('timestamps', 'Fecha')!!}
-                            {!! Form::text('timestamps',null,['class'=>'form-control', 'required', 'autofocus']) !!}
-                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
