@@ -13,6 +13,9 @@
         <!-- Styles -->
         <style>
             html, body {
+            {{--}} background-image: url("https://st2.depositphotos.com/2010295/5949/v/950/depositphotos_59490863-stock-illustration-abstract-background-with-glasses.jpg");{{--}}
+                background-image: url("https://images.pexels.com/photos/53156/glasses-fluke-angel-therapy-glasses-glass-golden-53156.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+                background-size: 100% 100%;
                 background-color: #f8eae0;
                 color: #636b6f;
                 font-family: "Courier New";
@@ -47,17 +50,28 @@
 
             .title {
                 font-size: 150px;
-                color: #005ab3;
+                color: #000204;
                 font-family: "Courier New";
                 text-align: left;
+                font-weight: 600;
 
             }
 
-            .links > a {
+            .links1 > a {
                 color: #000204;
                 padding: 0 15px;
                 font-size: 20px;
-                font-weight: 600;
+                font-weight: 900;
+                letter-spacing: 0rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .links2 > a {
+                color: #000204;
+                padding: 0 30px;
+                font-size: 35px;
+                font-weight: 900;
                 letter-spacing: 0rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -72,7 +86,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links1">
                     @auth
                         <a href="{{ url('/home') }}">INICIO</a>
                     @else
@@ -87,7 +101,7 @@
                     Óptica Salas
                 </div>
 
-                <div class="links">
+                <div class="links2">
                     <a href="{{ url('/information') }}">¿Quiénes somos?</a>
                 </div>
             </div>

@@ -8,7 +8,7 @@
                     <div class="panel-heading">Crear proveedor</div>
 
                     <div class="panel-body">
-
+                        @include('flash::message')
                         {!! Form::open(['route'=>'suppliers.store']) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre del proveedor') !!}

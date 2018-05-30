@@ -102,7 +102,7 @@
                 <dt>Teléfono: 666555444</dt>
             </dl>
         </div>
-        <img src = "https://www.elindependiente.com/wp-content/uploads/2017/05/gafas-3d.jpg"
+        <img src = "https://images.pexels.com/photos/911819/pexels-photo-911819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
              width="320" height= "180" style = "margin-left: 70%">
 
 

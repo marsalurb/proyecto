@@ -8,8 +8,6 @@
                     <div class="panel-heading">Editar cliente</div>
 
                     <div class="panel-body">
-
-
                         {!! Form::model($purchaser, ['route'=>['purchasers.update',$purchaser->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">

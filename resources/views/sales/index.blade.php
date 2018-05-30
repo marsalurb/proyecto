@@ -8,6 +8,7 @@
                     <div class="panel-heading">Ventas</div>
 
                     <div class="panel-body">
+                        @include('flash::message')
                         {!! Form::open(['route'=>'sales.create', 'method'=>'get']) !!}
                         {!! Form::submit('Crear venta', ['class'=> 'btn btn-primary']) !!}
                         {!! Form::close() !!}
@@ -15,6 +16,7 @@
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
+                                <th>Venta</th>
                                 <th>Cliente</th>
                                 <th>Empleado</th>
 
@@ -22,11 +24,12 @@
 
                             @foreach($sales as $sale)
                                 <tr>
+                                    <td>{{$sale->id}}</td>
                                     <td>{{$sale->purchaser->fullname}}</td>
                                     <td>{{$sale->employer->fullname}}</td>
                                     <td>
-                                        {!! Form::open(['route'=>['sales.show', $sale->id], 'method' => 'get']) !!}
-                                        {!! Form::submit('Detalles de productos', ['class'=> 'btn btn-success']) !!}
+                                        {!! Form::open(['route'=>['itemSales.index', $sale->id], 'method' => 'get']) !!}
+                                        {!! Form::submit('Detalles', ['class'=> 'btn btn-success']) !!}
                                         {!! Form::close() !!}
                                     </td>
 

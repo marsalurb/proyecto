@@ -110,7 +110,7 @@ class SaleController extends Controller
         ]);
         $sale->fill($request->all());
         $sale->save();
-        flash('Empleado modificado correctamente');
+        flash('Venta modificada correctamente');
         return redirect()->route('sales.index');
 
 
@@ -131,24 +131,8 @@ class SaleController extends Controller
         return redirect()->route('sales.index');
     }
 
-    public function productosVentas($id, Request $request){
 
-        $this->validate($request, [
-            'amount'=>'numeric'
-        ]);
-        $sale=Sale::find($id);
-        $sale->items()->attach($request->item_id, ['amount'=>$request->amount, 'sale_id'=>$sale->id]);
-        return redirect()->route('sales.show'. ['sale'=>$sale]);
-    }
 
-    public function deleteItem($idItem ,$idSale)
-    {
-        $item = Item::find($idItem);
-        $sale = Consulta::find($idSale);
-        $sale->items()->detach($item->id);
-
-        return redirect()->route('sales.show', ['sale'=>$sale]);
-    }
 
 
 }

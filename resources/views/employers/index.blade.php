@@ -8,6 +8,7 @@
                 <div class="panel-heading">Empleados</div>
 
                 <div class="panel-body">
+                    @include('flash::message')
                     <br><br>
                     <table class="table table-striped table-bordered">
                         <tr>

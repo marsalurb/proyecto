@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
 
-
+                        @include('flash::message')
                         {!! Form::open(['route'=>'sales.store']) !!}
                         <div class="form-group">
                             {!! Form::label('purchaser_id', 'Cliente') !!}

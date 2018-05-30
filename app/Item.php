@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class item extends Model
 {
     //
-    protected $fillable = ['price', 'model', 'brand', 'guarantee', 'stock', 'amount', 'sale_id', 'supplier_id'];
+    protected $fillable = ['price', 'model', 'brand', 'guarantee', 'stock', 'supplier_id'];
 
-    public function sale(){
-        return $this->belongsToMany('App\Sale')->withPivot('amount');
+    public function itemSale(){
+        return $this->hasMany('App\ItemSale');
     }
 
     public function supplier(){

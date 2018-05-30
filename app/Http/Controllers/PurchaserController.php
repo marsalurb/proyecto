@@ -55,6 +55,7 @@ class PurchaserController extends Controller
         $user->number = $request['number'];
         $user->email = $request['email'];
         $user->address = $request['address'];
+        $user->password = bcrypt($request['DNI']);
 
         $user->save();
 
@@ -111,6 +112,7 @@ class PurchaserController extends Controller
         $user->number = $request['number'];
         $user->email = $request['email'];
         $user->address = $request['address'];
+        $user->password = bcrypt($request['DNI']);
 
         $user->save();
 
