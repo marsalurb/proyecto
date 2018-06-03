@@ -25,6 +25,7 @@ Route::resource('purchasers', 'PurchaserController');
 Route::resource('sales', 'SaleController');
 Route::resource('items', 'ItemController');
 Route::resource('itemSales', 'ItemSaleController');
+Route::resource('itemSuppliers', 'ItemSupplierController');
 
 Route::get('/information',function(){
     return view('information');

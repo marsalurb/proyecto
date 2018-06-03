@@ -48,7 +48,17 @@ class EmployerController extends Controller
             'salary'=>'numeric'
         ]);
 
+        $user = new User;
+        $user->firstname = $request['firstname'];
+        $user->surname = $request['surname'];
+        $user->surname2 = $request['surname2'];
+        $user->dni = $request['dni'];
+        $user->number = $request['number'];
+        $user->email = $request['email'];
+        $user->address = $request['address'];
+
         $employer = new Employer($request->all());
+        $employer->user()->associate($user);
         $employer->save();
         flash('Empleado creado correctamente');
         return redirect()->route('employers.index');

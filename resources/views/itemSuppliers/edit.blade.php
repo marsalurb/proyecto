@@ -5,28 +5,31 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Crear línea de venta</div>
+                    <div class="panel-heading">Editar </div>
                     <br>
 
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::open(['route' => 'itemSales.store']) !!}
+                        {!! Form::model($itemSupplier, [ 'route' =>
+                        ['itemSuppliers.update', $itemSupplier->id], 'method'=>'PUT']) !!}
+
+
+
                         <div class="form-group">
-                            {!! Form::label('amount', 'Cantidad') !!}
-                            {!! Form::number('amount',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!!Form::label('item_id', 'Producto') !!}
+                            <br>
+                            {!! Form::select('item_id', $items, $itemSupplier->item_id, ['class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!!Form::label('item_id', 'Modelo del producto') !!}
+                            {!!Form::label('supplier_id', 'Proveedor') !!}
                             <br>
-                            {!! Form::select('item_id', $items, ['class' => 'form-control']) !!}
+                            {!! Form::select('supplier_id', $suppliers, $itemSupplier->supplier_id, ['class' => 'form-control']) !!}
                         </div>
-                        <div class="form-group">
-                            {!!Form::label('sale_id', 'ID de la venta') !!}
-                            <br>
-                            {!! Form::text('sale_id', null, ['class' => 'form-control']) !!}
-                        </div>
+
+
+
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

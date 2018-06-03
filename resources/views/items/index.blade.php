@@ -6,15 +6,26 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Productos</div>
+                    <br>
 
 
-                    <div class="panel-body">
-                        @include('flash::message')
-                        {!! Form::open(['route'=>'items.create', 'method'=>'get']) !!}
-                        {!! Form::submit('Crear producto', ['class'=> 'btn btn-primary']) !!}
+                    <br class="panel-body">
+                    @include('flash::message')
+
+                    {!! Form:: open (['route'=>'items.create', 'method'=> 'get']) !!}
+                    {!! Form :: submit ('Crear producto', ['class'=>'btn btn-primary']) !!}
+                    {!! Form :: close() !!}
+
+                    <br><br>
+
+                    <td>
+                        {!! Form::open(['route' => 'itemSuppliers.index', 'method' => 'get']) !!}
+                        {!!   Form::submit('Proveedores', ['class'=> 'btn btn-success'])!!}
                         {!! Form::close() !!}
+                    </td>
 
-                        <br><br>
+
+                    <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Precio</th>
@@ -22,6 +33,7 @@
                                 <th>Marca</th>
                                 <th>Garantia</th>
                                 <th>Stock</th>
+
 
                             </tr>
 
