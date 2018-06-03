@@ -10,12 +10,21 @@
 
 
                     <div class="panel-body">
+
+
                         @include('flash::message')
 
+                        {!! Form:: open (['route'=>'itemSuppliers.create', 'method'=> 'get']) !!}
+                        {!! Form :: submit ('Crear relación', ['class'=>'btn btn-primary']) !!}
+                        {!! Form :: close() !!}
 
-                        {!! Form::open(['route' => 'itemSuppliers.create', 'method' => 'get', 'class'=>'inline-important']) !!}
-                        {!!   Form::submit('Crear relación', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::close() !!}
+                        <br><br>
+
+                        <td>
+                            {!! Form::open(['route' => 'suppliers.index', 'method' => 'get']) !!}
+                            {!!   Form::submit('Detalles proveedores', ['class'=> 'btn btn-success'])!!}
+                            {!! Form::close() !!}
+                        </td>
 
 
                         <br><br>
@@ -42,8 +51,6 @@
                                     <td>{{ $itemSupplier->item->guarantee }}</td>
                                     <td>{{ $itemSupplier->item->stock }}</td>
 
-
-
                                     <td>
                                         {!! Form::open(['route'=> ['itemSuppliers.edit', $itemSupplier->id],'method'=>'get']) !!}
                                         {!! Form::submit('Editar',['class'=>'btn btn-warning']) !!}
@@ -52,8 +59,7 @@
                                     <td>
                                         {!! Form::open(['route' =>
                                          ['itemSuppliers.destroy',$itemSupplier->id], 'method' => 'delete']) !!}
-                                        {!! Form::submit('Borrar',
-                                        ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        {!! Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

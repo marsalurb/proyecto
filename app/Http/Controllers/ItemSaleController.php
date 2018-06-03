@@ -18,8 +18,9 @@ class ItemSaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //$itemSales = ItemSale::model($request->get('model'))->orderBy('id', 'DESC');
         $itemSales = ItemSale::all();
         return view('itemSales/index',['itemSales'=>$itemSales]);
     }
@@ -51,6 +52,9 @@ class ItemSaleController extends Controller
         $itemSale->save();
         flash('Línea creada correctamente');
         return redirect()->route('itemSales.index');
+
+
+
     }
     /**
      * Display the specified resource.
@@ -68,12 +72,18 @@ class ItemSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ItemSale $itemSale)
     {
-        $itemSale = ItemSale::find($id);
+        /*$itemSale = ItemSale::find($id);
         $items = Item::all()->pluck('model', 'id');
         $sales = Sale::all()->pluck('id');
         return view('itemSales/edit',['itemSale'=> $itemSale, 'items'=>$items, 'sales'=>$sales]);
+    }*/
+
+        $items = Item::all()->pluck('model','id');
+        $sales = Sale::all()->pluck('id','id');
+        return view('itemSales/edit',['itemSale'=> $itemSale,
+            'items'=>$items, 'sales'=>$sales]);
     }
     /**
      * Update the specified resource in storage.
@@ -82,14 +92,15 @@ class ItemSaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ItemSale $itemSale)
     {
         $this->validate($request, [
             'item_id' => 'required|exists:items,id',
             'sale_id' => 'required|exists:sales,id',
             'amount' => 'required',
         ]);
-        $itemSale = ItemSale::find($id);
+        //$itemSale = ItemSale::find($id);
+
         $itemSale->fill($request->all());
         $itemSale->save();
         flash('Línea modificada correctamente');

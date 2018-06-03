@@ -13,6 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
+                background-image: url("https://images.pexels.com/photos/53156/glasses-fluke-angel-therapy-glasses-glass-golden-53156.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+                background-size: 100% 100%;
                 background-color: #f8eae0;
                 color: #636b6f;
                 font-family: "Courier New";
@@ -77,6 +79,7 @@
 
 
 
+
     </div>
 
 
@@ -86,11 +89,12 @@
         <h1 style = "margin-left: 10%" > Conócenos</h1>
         <p style = "margin-left: 10%" >Si te gustan las gafas, te gusta nuestra óptica.</p>
         <p style = "margin-left: 10%" >Vamos de la mano de las últimas tendencias. Tenemos un amplio catálogo con marcas y modelos exclusivos.</p>
-        <br></br>
+        <br><br><br><br>
 
         <h1 style = "margin-left: 10%" > Dónde estamos</h1>
         <p style = "margin-left: 10%" >Nos encontramos en Calle Torcuato Luca de Tena 9, Sevilla.</p>
-        <br></br>
+        <br><br><br><br>
+
 
 
         <!--Sobre nosotras-->
@@ -102,8 +106,7 @@
                 <dt>Teléfono: 666555444</dt>
             </dl>
         </div>
-        <img src = "https://images.pexels.com/photos/911819/pexels-photo-911819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-             width="320" height= "180" style = "margin-left: 70%">
+
 
 
 

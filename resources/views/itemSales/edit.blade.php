@@ -24,6 +24,12 @@
                             {!! Form::select('item_id', $items, $itemSale->item_id, ['class' => 'form-control']) !!}
                         </div>
 
+                        <div class="form-group">
+                            {!!Form::label('sale_id', 'Venta') !!}
+                            <br>
+                            {!! Form::select('sale_id', $sales, $itemSale->sale_id, ['class' => 'form-control']) !!}
+                        </div>
+
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

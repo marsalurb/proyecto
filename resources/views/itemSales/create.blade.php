@@ -25,7 +25,7 @@
                         <div class="form-group">
                             {!!Form::label('sale_id', 'ID de la venta') !!}
                             <br>
-                            {!! Form::text('sale_id', null, ['class' => 'form-control']) !!}
+                            {!! Form::number('sale_id', $sales, ['class' => 'form-control']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

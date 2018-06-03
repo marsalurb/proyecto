@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('guarantee', 'Garantia del producto')!!}
-                            {!! Form::text('guarantee',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::date('guarantee',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('stock', 'Stock del producto')!!}

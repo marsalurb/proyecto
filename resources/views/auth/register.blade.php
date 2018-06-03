@@ -112,9 +112,11 @@
                         <div class="form-group row">
 
                             <label for="role_id" class="col-md-4 control-label text-md-right">Rol</label>
+
                             <div class="col-md-6">
                                 {!! Form::select('role_id', $roles, ['class' => 'form-control', 'required']) !!}
                             </div>
+
                         </div>
 
                         <div class="form-group row">

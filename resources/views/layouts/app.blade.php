@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div style="background-color:#fff2f1" >
+    <div style="background-color:#fff8fe" >
     <div style=" font-family: 'Courier New'">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
