@@ -13,7 +13,6 @@
 
 
                         @include('flash::message')
-
                         {!! Form:: open (['route'=>'itemSuppliers.create', 'method'=> 'get']) !!}
                         {!! Form :: submit ('Crear relación', ['class'=>'btn btn-primary']) !!}
                         {!! Form :: close() !!}

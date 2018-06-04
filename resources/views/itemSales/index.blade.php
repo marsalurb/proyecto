@@ -10,6 +10,17 @@
 
                     <div class="panel-body">
                         @include('flash::message')
+                        <form class="navbar-form navbar-left pull-right" role="search">
+                            {{Form::open(['route'=>'itemSales.index', 'method'=>'GET', 'class'=> 'navbar-form navbar-left pull-right'])}}
+
+                            <div class="form-group">
+                                {{Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Id. Venta'])}}
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                        </form>
+                        <br><br>
+
                         {!! Form::open(['route' => 'itemSales.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear línea de venta', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}

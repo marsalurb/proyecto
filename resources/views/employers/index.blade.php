@@ -21,6 +21,7 @@
                                 <th>Direccion</th>
                                 <th>Nº telefono</th>
                                 <th>Email</th>
+                                <th>Salario</th>
 
                             </tr>
 
@@ -34,6 +35,7 @@
                                     <td>{{$employer->user->address}}</td>
                                     <td>{{$employer->user->number}}</td>
                                     <td>{{$employer->user->email}}</td>
+                                    <td>{{$employer->salary}}</td>
                                     <td>
                                         {!! Form::open(['route'=>['employers.edit', $employer->id], 'method' => 'get']) !!}
                                         {!! Form::submit('Editar', ['class'=> 'btn btn-warning']) !!}

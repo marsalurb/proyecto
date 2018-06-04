@@ -16,4 +16,5 @@ class itemSupplier extends Model
     {
         return $this->belongsTo('App\Supplier');
     }
+
 }

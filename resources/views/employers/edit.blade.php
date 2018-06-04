@@ -40,6 +40,10 @@
                             {!! Form::text('email',$employer->user->email,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('salary', 'Salario del empleado') !!}
+                            {!! Form::text('salary',$employer->salary,['class'=>'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('role_id', 'Rol') !!}
                             <br>
                             {!! Form::select('role_id', $roles, $employer->role_id, ['class' => 'form-control', 'required']) !!}

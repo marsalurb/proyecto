@@ -19,6 +19,7 @@
                 color: #636b6f;
                 font-family: "Courier New";
                 font-weight: 100;
+                font-size: 20px;
                 height: 100vh;
                 margin: auto;
             }
@@ -77,27 +78,22 @@
 
     <body>
 
-
-
-
     </div>
 
 
-    <!--Descripción de los objetivos-->
+
     <br class = "contenido m-b-md" >
         <br></br>
         <h1 style = "margin-left: 10%" > Conócenos</h1>
         <p style = "margin-left: 10%" >Si te gustan las gafas, te gusta nuestra óptica.</p>
         <p style = "margin-left: 10%" >Vamos de la mano de las últimas tendencias. Tenemos un amplio catálogo con marcas y modelos exclusivos.</p>
-        <br><br><br><br>
+        <br>
 
         <h1 style = "margin-left: 10%" > Dónde estamos</h1>
         <p style = "margin-left: 10%" >Nos encontramos en Calle Torcuato Luca de Tena 9, Sevilla.</p>
-        <br><br><br><br>
+        <br>
 
 
-
-        <!--Sobre nosotras-->
         <h1 style = "margin-left: 10%">Contacto</h1>
         <div>
             <dl style = "margin-left: 10%">
@@ -106,22 +102,6 @@
                 <dt>Teléfono: 666555444</dt>
             </dl>
         </div>
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
     </body>
-
-
 </html>

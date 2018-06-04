@@ -15,4 +15,10 @@ class itemSale extends Model
     public function item(){
         return $this->belongsTo('App\Item');
     }
+
+    public function scopeName($query, $name){
+        if(trim($name)!= ""){
+            $query->where('sale_id', $name);
+        }
+    }
 }

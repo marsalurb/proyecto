@@ -38,7 +38,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255|roles,name'
+            'name' => 'required|max:255'
         ]);
 
         $role = new Role($request->all());
@@ -79,7 +79,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $this->validate($request, [
-            'name' => 'required|max:255|roles,name'
+            'name' => 'required|max:255'
         ]);
         $role->fill($request->all());
         $role->save();

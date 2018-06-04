@@ -20,8 +20,8 @@ class ItemSaleController extends Controller
      */
     public function index(Request $request)
     {
-        //$itemSales = ItemSale::model($request->get('model'))->orderBy('id', 'DESC');
-        $itemSales = ItemSale::all();
+        $itemSales = ItemSale::name($request->get('name'))->orderBy('id', 'DESC')->paginate(500);
+        //$itemSales = ItemSale::all();
         return view('itemSales/index',['itemSales'=>$itemSales]);
     }
     /**

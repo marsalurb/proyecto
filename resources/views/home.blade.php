@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Datos correctos</div>
+                <div style="font-size:20px" class="card-header">Datos correctos</div>
 
 
                 <br class="panel-body">
@@ -13,7 +13,7 @@
                         Bienvenido a Óptica Salas
 
                     </td>
-                    <br></br>
+                    <br><br>
 
                     <td>
                         {!! Form::open(['route' => ['sales.index'], 'method' => 'get']) !!}
