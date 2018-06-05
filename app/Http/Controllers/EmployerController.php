@@ -31,7 +31,7 @@ class EmployerController extends Controller
     public function create()
     {
         //$users = User::all();
-        $roles = Role::all()->pluck('name');
+        $roles = Role::all()->pluck('name', 'id');
         return view('employers/create', ['roles'=>$roles]);
     }
 
@@ -83,7 +83,7 @@ class EmployerController extends Controller
      */
     public function edit(Employer $employer)
     {
-        $roles=Role::all()->pluck('name');
+        $roles=Role::all()->pluck('name', 'id');
         return view('employers/edit', ['employer' => $employer, 'roles' => $roles]);
     }
 
